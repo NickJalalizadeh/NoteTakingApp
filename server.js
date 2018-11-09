@@ -8,6 +8,8 @@ const app           = express();
 const port = 8000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
+//Serve static files from current directory
+app.use(express.static(__dirname));
 
 MongoClient.connect(dbConfig.url, (err, database) => {
     if (err) return console.log(err);

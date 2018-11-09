@@ -1,6 +1,12 @@
 var ObjectID = require('mongodb').ObjectID;
+const path = require('path');
 
 module.exports = function(app, db) {
+
+    app.get('/', function(req, res) {
+        res.sendFile(path.join(__dirname + '/index.html'));
+    });
+    
     //Creating a Note
     app.post('/notes', (req, res) => {
         const note = { text: req.body.body, title: req.body.title };
