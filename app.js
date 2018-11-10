@@ -1,8 +1,22 @@
 $(document).ready(function() {
-    $("button").on("click", function(event) {
-        $.get("notes/5be389d642ba5b0720419c17", function(data, status) {
-            $("h2").html(data.title);
-            $("p").html(data.text);
+    $("#createBtn").on("click", function(event) {
+        const noteTitle = $("#titleInput").val();
+        const noteText = $("#textInput").val();
+        
+        $(".d-none .card-title").html(noteTitle); // Select invisible card
+        $(".d-none .card-text").html(noteText);
+        $(".d-none").removeClass("d-none"); // Make new card visible
+
+        $.get('noteTemplate.html', function(data){
+            $('.row').append(data);
+        });
+    });
+
+    $(".btn-save").on("click", function() {
+        const noteTitle = $("input").val();
+        const noteBody = $("textarea").val();
+        $.post("notes/", {title: noteTitle, body: noteBody}, function(data) {
+            console.log(data);
         });
     });
 });

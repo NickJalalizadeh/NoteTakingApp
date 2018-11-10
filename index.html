@@ -9,23 +9,40 @@
   <body>
     <h2>Note Title</h2>
     <p>Note text</p>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content form-group">
+                <div class="modal-header">
+                    <input id="titleInput" type="text" class="form-control" placeholder="Title">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <textarea id="textInput" class="form-control" placeholder="Text"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="createBtn" type="button" class="btn btn-primary">Create Note</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
-            <div class="col"><div class="alert alert-primary" role="alert">col</div></div>
-            <div class="col"> <div class="alert alert-primary" role="alert">col</div></div>
-            <div class="w-100"></div>
-            <div class="col"><div class="alert alert-primary" role="alert">col</div></div>
-            <div class="col"><div class="alert alert-primary" role="alert">col</div></div>
+            <div class="col-sm-3">
+                <div class="card d-none">
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="" class="card-link btn-save">Save</a>
+                        <a href="" class="card-link btn-edit">Edit</a>
+                        <a href="" class="card-link btn-delete">Delete</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-sm-8"><div class="alert alert-primary" role="alert">col-sm-8</div></div>
-            <div class="col-sm-4"><div class="alert alert-primary" role="alert">col-sm-4</div></div>
-        </div>
-        <div class="row">
-            <div class="col-auto"><div class="alert alert-primary" role="alert">This is a looooooooot of text</div></div>
-            <div class="col-auto"><div class="alert alert-primary" role="alert">col-sm-auto</div></div>
-        </div>
-        <button type="button" class="btn btn-primary">Button</button>
+        <button id="modalBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Open Modal</button>
     </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!--no jQuery subresource integrity-->
