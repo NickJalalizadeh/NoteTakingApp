@@ -2,19 +2,28 @@ var ObjectID = require('mongodb').ObjectID;
 const path = require('path');
 
 module.exports = function(app, db) {
-
-    app.get('/', function(req, res) {
-        res.sendFile(path.join(__dirname + '/index.html'));
-    });
     
     //Creating a Note
     app.post('/notes', (req, res) => {
-        const note = { text: req.body.body, title: req.body.title };
+        // Validate request
+        if(!req.body.title && !req.body.body) {
+            return res.status(400).send({
+                error: "Note can not be empty"
+            });
+        }
+
+        // Define Note
+        const note = { 
+            title: req.body.title || 'Untitled Note',
+            body: req.body.body
+        };
+
+        // Save Note in the database
         db.collection('notes').insert(note, (err, result) => {
             if (err) { 
-                res.send({ 'error': 'An error has occurred' }); 
+                res.send({ error: err.message || 'An error has occurred' }); 
             } else {
-                res.send(result.ops[0]);
+                res.send(note);
             }
         });
     });
@@ -23,23 +32,39 @@ module.exports = function(app, db) {
     app.get('/notes/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
-        db.collection('notes').findOne(details, (err, item) => {
+        db.collection('notes').findOne(details, (err, result) => {
             if (err) {
-                res.send({'error':'An error has occurred'});
+                res.send({error: err.message || 'An error has occurred'});
             } else {
-                res.send(item);
+                res.send(result);
+            } 
+        });
+    });
+
+    //Read all Notes
+    app.get('/notes', (req, res) => {
+        db.collection('notes').find({}).toArray((err, result) => {
+            if (err) {
+                res.send({error: err.message || 'An error has occurred'});
+            } else {
+                res.send(result);
             } 
         });
     });
 
     //Updating a Note
     app.put('/notes/:id', (req, res) => {
+        // Define Note
+        const note = {
+            title: req.body.title || 'Untitled Note', 
+            body: req.body.body 
+        };
+
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
-        const note = { text: req.body.body, title: req.body.title };
         db.collection('notes').update(details, note, (err, result) => {
             if (err) {
-                res.send({'error':'An error has occurred'});
+                res.send({error: err.message || 'An error has occurred'});
             } else {
                 res.send(note);
             } 
@@ -52,7 +77,7 @@ module.exports = function(app, db) {
         const details = { '_id': new ObjectID(id) };
         db.collection('notes').remove(details, (err, item) => {
             if (err) {
-                res.send({'error':'An error has occurred'});
+                res.send({error: err.message || 'An error has occurred'});
             } else {
                 res.send('Note ' + id + ' deleted!');
             } 
