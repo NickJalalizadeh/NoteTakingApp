@@ -15,7 +15,8 @@ module.exports = function(app, db) {
         // Define Note
         const note = { 
             title: req.body.title || 'Untitled Note',
-            body: req.body.body
+            body: req.body.body,
+            color: req.body.color
         };
 
         // Save Note in the database
@@ -57,7 +58,8 @@ module.exports = function(app, db) {
         // Define Note
         const note = {
             title: req.body.title || 'Untitled Note', 
-            body: req.body.body 
+            body: req.body.body,
+            color: req.body.color
         };
 
         const id = req.params.id;

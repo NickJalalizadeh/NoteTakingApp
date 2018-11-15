@@ -1,0 +1,19 @@
+// color id's map to these colors:
+$colors: #8CB369, #F4E285, #F4A259, #5B8E7D, #BC4B51, #C8C8C8, #223843, #DFBBB1;
+
+#colorGroup {
+    .btn {
+        width: 30px;
+        height: 30px;
+    }
+    .btn.focus {
+        box-shadow: none !important;
+    }
+    @for $i from 1 through 8 {
+        #color#{$i} { border-color: nth($colors, $i) !important; }
+        #color#{$i}:hover,  #color#{$i}.focus, #color#{$i}.active  { outline: none !important; background-color: nth($colors, $i) !important; }
+    }
+}
+#actionGroup {
+    margin-top: 0.5rem;
+}
