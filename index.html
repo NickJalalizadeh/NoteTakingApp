@@ -9,11 +9,11 @@
   </head>
   <body>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content form-group">
                 <div class="modal-header">
                     <input id="titleInput" type="text" class="form-control" placeholder="Title">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -21,10 +21,10 @@
                     <textarea id="textInput" rows="6" class="form-control" placeholder="Text"></textarea>
                 </div>
                 <div class="modal-footer">
-                    <div class="container-fluid">
+                    <div class="container p-0">
                         <div id="colorGroup" class="btn-group btn-group-toggle justify-content-center" data-toggle="buttons">
                             <label id="color0" class="btn btn-outline-secondary rounded-circle">
-                                <input type="radio" name="colors" autocomplete="off">
+                                <input type="radio" name="colors" autocomplete="off" tabindex="-1">
                             </label>
                             <!-- JS will duplicate 8 more buttons here -->
                         </div>
@@ -41,9 +41,19 @@
     </div>
     <div class="container-fluid">
         <div class="row justify-content-center mt-2">
-            <button id="newNoteBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">New Note</button>
+            <button id="newNoteBtn" type="button" class="btn btn-primary rounded-circle" data-toggle="modal" data-target="#exampleModal">
+                <span aria-hidden="true">&plus;</span>
+            </button>
         </div>
         <div class="row cardRow">
+            <div class="col-sm-6 col-md-3 col-lg-2 cardContainer d-none">
+                <div id="" class="card" data-toggle="modal" data-target="#exampleModal">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

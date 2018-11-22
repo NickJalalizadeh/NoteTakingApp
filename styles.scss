@@ -1,6 +1,14 @@
 // color id's map to these colors:
 $colors: #8CB369, #F4E285, #F4A259, #5B8E7D, #BC4B51, #DFBBB1, #C8C8C8, #2b4755;
 
+#newNoteBtn {
+    height: 3rem;
+    width: 3rem;
+    span {
+        font-size: 2rem;
+        line-height: 80%;
+    }
+}
 .cardContainer {
     margin-top: 0.5rem;
     padding-left: 0.5rem;
@@ -15,6 +23,9 @@ $colors: #8CB369, #F4E285, #F4A259, #5B8E7D, #BC4B51, #DFBBB1, #C8C8C8, #2b4755;
 }
 .modal-header, .modal-body, .modal-footer {
     padding: 0.5rem !important;
+}
+#textInput {
+    height: 20rem !important;
 }
 #colorGroup {
     width: 100%;

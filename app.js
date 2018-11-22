@@ -25,11 +25,8 @@ $(document).ready(function() {
         });
     };
 
-    function appendNewCard() {
-        $.get('noteInvisible.html', function(data){
-            $('.cardRow').prepend(data); // Append invisible card
-            $('.d-none .card-body').on('click', clickCard);
-        });
+    function prependNew(card) {
+        $('.cardRow').prepend(card);
     }
 
     for (let i = 1; i <= 8; i++) {
@@ -40,20 +37,18 @@ $(document).ready(function() {
 
     // Load all notes
     $.get("notes/", function(notes) {
-        $.get('noteVisible.html', function(data){
-            var card = $(data);
-            
-            $.each(notes, function(i, note) {
-                card.find(".card-body").on('click', clickCard);
-                card.find(".card-title").html(note.title);
-                card.find(".card-text").html(note.body);
-                card.find(".card-body").css("background-color", note.color);
-                card.find(".card").attr("id", note._id);
-                $('.cardRow').append(card);
-                card = card.clone();
-            });
+        var card = $(".d-none").clone();
+        card.removeClass("d-none");
+
+        $.each(notes, function(i, note) {
+            card.find(".card-body").on('click', clickCard);
+            card.find(".card-title").html(note.title);
+            card.find(".card-text").html(note.body);
+            card.find(".card-body").css("background-color", note.color);
+            card.find(".card").attr("id", note._id);
+            $('.cardRow').prepend(card);
+            card = card.clone();
         });
-        appendNewCard();
     });
 
     // Click new note
@@ -82,14 +77,15 @@ $(document).ready(function() {
 
         $.post("notes/", {title: modalTitle, body: modalBody, color: modalColor}, function(data) {
             console.log(data);
-            const createdCard = $(".d-none .card");
-            createdCard.find(".card-title").html(data.title); // Select invisible card
-            createdCard.find(".card-text").html(data.body);
-            createdCard.find(".card-body").css("background-color", data.color);
-            createdCard.attr("id", data._id);
-            createdCard.parent().removeClass("d-none"); // Make new card visible
+            const newCard = $(".d-none").clone();
+            newCard.find(".card-body").on('click', clickCard);
+            newCard.find(".card-title").html(data.title); // Select invisible card
+            newCard.find(".card-text").html(data.body);
+            newCard.find(".card-body").css("background-color", data.color);
+            newCard.find(".card").attr("id", data._id);
+            newCard.removeClass("d-none"); // Make new card visible
         
-            appendNewCard();
+            prependNew(newCard);
         });
     });
 
