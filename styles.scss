@@ -1,19 +1,53 @@
 // color id's map to these colors:
-$colors: #8CB369, #F4E285, #F4A259, #5B8E7D, #BC4B51, #C8C8C8, #223843, #DFBBB1;
+$colors: #8CB369, #F4E285, #F4A259, #5B8E7D, #BC4B51, #DFBBB1, #C8C8C8, #2b4755;
 
+.cardContainer {
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    .card-text {
+        max-height: 5rem;
+        overflow: hidden;
+    }
+}
+.card:hover, {
+    outline: 3px solid rgba(0,0,0,.125);
+}
+.modal-header, .modal-body, .modal-footer {
+    padding: 0.5rem !important;
+}
 #colorGroup {
+    width: 100%;
     .btn {
         width: 30px;
         height: 30px;
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
     }
     .btn.focus {
         box-shadow: none !important;
     }
-    @for $i from 1 through 8 {
-        #color#{$i} { border-color: nth($colors, $i) !important; }
-        #color#{$i}:hover,  #color#{$i}.focus, #color#{$i}.active  { outline: none !important; background-color: nth($colors, $i) !important; }
+    #color0 {
+        border-color: #D9D9D9 !important;
+    }
+    #color0:hover,  #color0.focus, #color0.active  { 
+        outline: none !important; 
+        background-color: #FFF !important; 
+    }
+    @for $i from 1 through length($colors) {
+        #color#{$i} { 
+            border-color: nth($colors, $i) !important;
+         }
+        #color#{$i}:hover,  #color#{$i}.focus, #color#{$i}.active  { 
+            outline: none !important; 
+            background-color: nth($colors, $i) !important; 
+        }
     }
 }
 #actionGroup {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    .btn {
+        margin-left: 0.5rem !important;
+        margin-right: 0.5rem !important;
+    }
 }

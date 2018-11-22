@@ -1,9 +1,39 @@
+.cardContainer {
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.cardContainer .card-text {
+  max-height: 5rem;
+  overflow: hidden;
+}
+
+.card:hover {
+  outline: 3px solid rgba(0, 0, 0, 0.125);
+}
+
+.modal-header, .modal-body, .modal-footer {
+  padding: 0.5rem !important;
+}
+
+#colorGroup {
+  width: 100%;
+}
 #colorGroup .btn {
   width: 30px;
   height: 30px;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
 }
 #colorGroup .btn.focus {
   box-shadow: none !important;
+}
+#colorGroup #color0 {
+  border-color: #D9D9D9 !important;
+}
+#colorGroup #color0:hover, #colorGroup #color0.focus, #colorGroup #color0.active {
+  outline: none !important;
+  background-color: #FFF !important;
 }
 #colorGroup #color1 {
   border-color: #8CB369 !important;
@@ -41,29 +71,33 @@
   background-color: #BC4B51 !important;
 }
 #colorGroup #color6 {
-  border-color: #C8C8C8 !important;
+  border-color: #DFBBB1 !important;
 }
 #colorGroup #color6:hover, #colorGroup #color6.focus, #colorGroup #color6.active {
   outline: none !important;
-  background-color: #C8C8C8 !important;
+  background-color: #DFBBB1 !important;
 }
 #colorGroup #color7 {
-  border-color: #223843 !important;
+  border-color: #C8C8C8 !important;
 }
 #colorGroup #color7:hover, #colorGroup #color7.focus, #colorGroup #color7.active {
   outline: none !important;
-  background-color: #223843 !important;
+  background-color: #C8C8C8 !important;
 }
 #colorGroup #color8 {
-  border-color: #DFBBB1 !important;
+  border-color: #2b4755 !important;
 }
 #colorGroup #color8:hover, #colorGroup #color8.focus, #colorGroup #color8.active {
   outline: none !important;
-  background-color: #DFBBB1 !important;
+  background-color: #2b4755 !important;
 }
 
 #actionGroup {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+}
+#actionGroup .btn {
+  margin-left: 0.5rem !important;
+  margin-right: 0.5rem !important;
 }
 
 /*# sourceMappingURL=stylesheet.css.map */

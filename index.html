@@ -18,61 +18,33 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <textarea id="textInput" class="form-control" placeholder="Text"></textarea>
+                    <textarea id="textInput" rows="6" class="form-control" placeholder="Text"></textarea>
                 </div>
                 <div class="modal-footer">
                     <div class="container-fluid">
-                        <div class="row justify-content-end">
-                            <div id="colorGroup" class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label id="color1" class="col-auto btn btn-outline-secondary rounded-circle active">
-                                    <input type="radio" name="colors" autocomplete="off">
-                                </label>
-                                <label id="color2" class="col-auto btn btn-outline-secondary rounded-circle">
-                                    <input type="radio" name="colors" autocomplete="off">
-                                </label>
-                                <label id="color3" class="col-auto btn btn-outline-secondary-warning rounded-circle">
-                                    <input type="radio" name="colors" autocomplete="off">
-                                </label>
-                                <label id="color4" class="col-auto btn btn-outline-secondary rounded-circle">
-                                    <input type="radio" name="colors" autocomplete="off">
-                                </label>
-                                <label id="color5" class="col-auto btn btn-outline-secondary rounded-circle">
-                                    <input type="radio" name="colors" autocomplete="off">
-                                </label>
-                                <label id="color6" class="col-auto btn btn-outline-secondary rounded-circle">
-                                    <input type="radio" name="colors" autocomplete="off">
-                                </label>
-                                <label id="color7" class="col-auto btn btn-outline-secondary rounded-circle">
-                                    <input type="radio" name="colors" autocomplete="off">
-                                </label>
-                                <label id="color8" class="col-auto btn btn-outline-secondary rounded-circle">
-                                    <input type="radio" name="colors" autocomplete="off">
-                                </label>
-                            </div>
-                            <!-- <button type="button" class="col-auto btn btn-outline-primary rounded-circle"> </button>
-                            <button type="button" class="col-auto btn btn-outline-success rounded-circle"> </button>
-                            <button type="button" class="col-auto btn btn-outline-warning rounded-circle"> </button>
-                            <button type="button" class="col-auto btn btn-outline-danger rounded-circle"> </button> -->
+                        <div id="colorGroup" class="btn-group btn-group-toggle justify-content-center" data-toggle="buttons">
+                            <label id="color0" class="btn btn-outline-secondary rounded-circle">
+                                <input type="radio" name="colors" autocomplete="off">
+                            </label>
+                            <!-- JS will duplicate 8 more buttons here -->
                         </div>
-                        <div id="actionGroup" class="row justify-content-end">
-                            <button type="button" class="col-auto btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button id="createBtn" type="button" class="col-auto btn btn-primary hideable" data-dismiss="modal">Create</button>
-                            <button id="saveBtn" type="button" class="col-auto btn btn-success hideable" data-dismiss="modal">Save</button>
-                            <button id="deleteBtn" type="button" class="col-auto btn btn-danger hideable" data-dismiss="modal">Delete</button>
+                        <div id="actionGroup" class="row justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button id="createBtn" type="button" class="btn btn-primary" data-dismiss="modal">Create</button>
+                            <button id="saveBtn" type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+                            <button id="deleteBtn" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row cardRow">
-            <div class="col-sm-12 text-center">
-                <h2>Yes Bro</h2>
-                <p>I am pro dev</p>
-            </div>
+    <div class="container-fluid">
+        <div class="row justify-content-center mt-2">
+            <button id="newNoteBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">New Note</button>
         </div>
-        <button id="newNoteBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">New Note</button>
+        <div class="row cardRow">
+        </div>
     </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!--no jQuery subresource integrity-->
