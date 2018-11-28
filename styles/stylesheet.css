@@ -1,0 +1,109 @@
+#newNoteBtn {
+  height: 3rem;
+  width: 3rem;
+}
+#newNoteBtn span {
+  font-size: 2rem;
+  line-height: 80%;
+}
+
+.cardContainer {
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.cardContainer .card-text {
+  max-height: 5rem;
+  overflow: hidden;
+}
+
+.card:hover {
+  outline: 3px solid rgba(0, 0, 0, 0.125);
+}
+
+.modal-header, .modal-body, .modal-footer {
+  padding: 0.5rem !important;
+}
+
+#textInput {
+  height: 20rem !important;
+}
+
+#colorGroup {
+  width: 100%;
+}
+#colorGroup .btn {
+  width: 35px;
+  height: 35px;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+}
+#colorGroup .btn.focus {
+  box-shadow: none !important;
+}
+#colorGroup #color0 {
+  border-color: #D9D9D9 !important;
+}
+#colorGroup #color0:hover, #colorGroup #color0.focus, #colorGroup #color0.active {
+  outline: none !important;
+  background-color: #FFF !important;
+}
+#colorGroup #color1 {
+  border-color: #8CB369 !important;
+}
+#colorGroup #color1:hover, #colorGroup #color1.focus, #colorGroup #color1.active {
+  outline: none !important;
+  background-color: #8CB369 !important;
+}
+#colorGroup #color2 {
+  border-color: #F4E285 !important;
+}
+#colorGroup #color2:hover, #colorGroup #color2.focus, #colorGroup #color2.active {
+  outline: none !important;
+  background-color: #F4E285 !important;
+}
+#colorGroup #color3 {
+  border-color: #F4A259 !important;
+}
+#colorGroup #color3:hover, #colorGroup #color3.focus, #colorGroup #color3.active {
+  outline: none !important;
+  background-color: #F4A259 !important;
+}
+#colorGroup #color4 {
+  border-color: #5B8E7D !important;
+}
+#colorGroup #color4:hover, #colorGroup #color4.focus, #colorGroup #color4.active {
+  outline: none !important;
+  background-color: #5B8E7D !important;
+}
+#colorGroup #color5 {
+  border-color: #BC4B51 !important;
+}
+#colorGroup #color5:hover, #colorGroup #color5.focus, #colorGroup #color5.active {
+  outline: none !important;
+  background-color: #BC4B51 !important;
+}
+#colorGroup #color6 {
+  border-color: #DFBBB1 !important;
+}
+#colorGroup #color6:hover, #colorGroup #color6.focus, #colorGroup #color6.active {
+  outline: none !important;
+  background-color: #DFBBB1 !important;
+}
+#colorGroup #color7 {
+  border-color: #2b4755 !important;
+}
+#colorGroup #color7:hover, #colorGroup #color7.focus, #colorGroup #color7.active {
+  outline: none !important;
+  background-color: #2b4755 !important;
+}
+
+#actionGroup {
+  margin-top: 1rem;
+}
+#actionGroup .btn {
+  margin-left: 0.5rem !important;
+  margin-right: 0.5rem !important;
+}
+
+/*# sourceMappingURL=stylesheet.css.map */
