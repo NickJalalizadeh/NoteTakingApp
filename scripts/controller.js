@@ -57,7 +57,6 @@ function controller() {
 
         // Make ajax post request
         $.post("notes/", {title: modalTitle, body: modalBody, color: modalColor}, function(data) {
-            console.log(data);
             // Clone existiting invisible card and modify its values
             const newCard = $(".d-none").clone();
             newCard.find(".card-body").on('click', clickCard);
@@ -75,7 +74,6 @@ function controller() {
     clickCard = function() {
         // Select the .card object
         selectedCard = $(this).parent();
-        console.log(selectedCard);
         const cardTitle = selectedCard.find(".card-title").html();
         const cardText = selectedCard.find(".card-text").html();
         const cardColor = selectedCard.find(".card-body").css("background-color");
@@ -114,7 +112,6 @@ function controller() {
                 type: 'PUT',
                 data: {title: modalTitle, body: modalBody, color: modalColor},
                 success: function(data) {
-                    console.log(data);
                     // Modify selected card data
                     selectedCard.find(".card-title").html(data.title);
                     selectedCard.find(".card-text").html(data.body);
@@ -133,7 +130,6 @@ function controller() {
                 url: "notes/" + id,
                 type: 'DELETE',
                 success: function(data) {
-                    console.log(data);
                     // Remove card's containing column div
                     selectedCard.parent().remove();
                 }
@@ -148,7 +144,6 @@ function controller() {
         if (label.attr("id") == "color0") {
             selectedColor = "#FFF";
         }
-        console.log(selectedColor);
         // Change modal background color based on selected button
         $('.modal-header, .modal-body').css('background-color', selectedColor);
     };
