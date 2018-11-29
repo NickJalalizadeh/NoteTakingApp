@@ -11,7 +11,7 @@ module.exports = function(app, db) {
     };
 
     //Creating a Note
-    app.post('notes', (req, res) => {
+    app.post('/notes', (req, res) => {
         // Validate request
         if(!req.body.title && !req.body.body) {
             return res.status(400).send({
@@ -33,7 +33,7 @@ module.exports = function(app, db) {
     });
 
     //Reading one Note
-    app.get('notes/:id', (req, res) => {
+    app.get('/notes/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
         db.collection('notes').findOne(details, (err, result) => {
@@ -46,7 +46,7 @@ module.exports = function(app, db) {
     });
 
     //Reading all Notes
-    app.get('notes', (req, res) => {
+    app.get('/notes', (req, res) => {
         db.collection('notes').find({}).toArray((err, result) => {
             if (err) {
                 res.send({error: err.message || 'An error has occurred'});
@@ -57,7 +57,7 @@ module.exports = function(app, db) {
     });
 
     //Updating a Note
-    app.put('notes/:id', (req, res) => {
+    app.put('/notes/:id', (req, res) => {
         // Define Note
         const note = defineNote(req.body);
 
@@ -73,7 +73,7 @@ module.exports = function(app, db) {
     });
 
     //Deleting a Note
-    app.delete('notes/:id', (req, res) => {
+    app.delete('/notes/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
         db.collection('notes').remove(details, (err) => {
